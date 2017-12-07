@@ -21,9 +21,7 @@ $(document).ready(function(){
         //console.log($(`#checking .balance`).val())
 
         //update page display with balance
-        displayBalance = "$"+checkingBalance
-        //console.log(displayCheckingBalance)
-        $(`#checking .balance`).html(displayBalance)
+        $(`#checking .balance`).html("$"+checkingBalance)       
         }
     })
 
@@ -44,9 +42,7 @@ $(document).ready(function(){
         //console.log($(`#savings .balance`).val())
 
         //update page display with balance
-        displayBalance = "$"+savingsBalance
-        //console.log(displaySavingsBalance)
-        $(`#savings .balance`).html(displayBalance)
+        $(`#savings .balance`).html("$"+savingsBalance)
         }
     })
 
@@ -61,15 +57,23 @@ $(document).ready(function(){
         //console.log(checkingBalance)
 
         //On clicking checking "Withdraw", it should update balance with input
-        checkingBalance = checkingBalance - parseInt($(`#checking .input`).val())
+
+
+        if (parseInt($(`#checking .input`).val()) < checkingBalance) {
+            checkingBalance = checkingBalance - parseInt($(`#checking .input`).val()) // without overdraft protection
+        }
+        else if (parseInt($(`#checking .input`).val())< (checkingBalance + savingsBalance)) {
+             savingsBalance = savingsBalance - (parseInt($(`#checking .input`).val()) - checkingBalance)
+             $(`#savings .balance`).html("$"+savingsBalance)
+             checkingBalance = 0
+        }
+
         $(`#checking .balance`).val(checkingBalance)
         //console.log(checkingBalance)
         //console.log($(`#checking .balance`).val())
 
         //update page display with balance
-        displayBalance = "$"+checkingBalance
-        //console.log(displayCheckingBalance)
-        $(`#checking .balance`).html(displayBalance)
+        $(`#checking .balance`).html("$"+checkingBalance)
         }
     })
 
@@ -84,15 +88,26 @@ $(document).ready(function(){
         //console.log(savingsBalance)
 
         //On clicking savings "Withdraw", it should update balance with input
-        savingsBalance = savingsBalance - parseInt($(`#savings .input`).val())   
+        //savingsBalance = savingsBalance - parseInt($(`#savings .input`).val())   
+        // console.log("savings balance: " + savingsBalance)
+        // console.log("input: " +parseInt($(`#savings .input`).val()))
+
+        if(parseInt($(`#savings .input`).val()) < savingsBalance) {
+            savingsBalance = savingsBalance - parseInt($(`#savings .input`).val()) // without overdraft protection
+        }
+        else if(parseInt($(`#savings .input`).val())< (checkingBalance + savingsBalance)) {
+            checkingBalance = checkingBalance - (parseInt($(`#savings .input`).val()) - savingsBalance)
+            $(`#checking .balance`).html("$"+checkingBalance)
+            savingsBalance = 0
+        }
+
+
         $(`#savings .balance`).val(savingsBalance)
         //console.log(savingsBalance)
         //console.log($(`#savings .balance`).val())
-        
+
         //update page display with balance
-        displayBalance = "$"+savingsBalance
-        //console.log(displaySavingsBalance)
-        $(`#savings .balance`).html(displayBalance)
+        $(`#savings .balance`).html("$"+savingsBalance)
         }
     })
 
