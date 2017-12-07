@@ -1,5 +1,7 @@
 var checkingBalance = 0
 var savingsBalance = 0
+// var displayCheckingBalance
+// var displaySavingsBalance
 
 $(document).ready(function(){
     //$('body').css('background-color','red')
@@ -17,11 +19,14 @@ $(document).ready(function(){
         //On clicking checking "Deposit", it should update balance with input
         checkingBalance = checkingBalance + parseInt($(`#checking .input`).val())
         $(`#checking .balance`).val(checkingBalance)
-        console.log(checkingBalance)
-        console.log($(`#checking .balance`).val())
+        //console.log(checkingBalance)
+        //console.log($(`#checking .balance`).val())
+        displayCheckingBalance = "$"+checkingBalance
+        //console.log(displayCheckingBalance)
+        $(`#checking .balance`).html(displayCheckingBalance)
 
-        //$(`#checking .balance`).html('div class="balance"> checkingBalance</div>')
-        
+        // $( "p" ).html( "<b>Single:</b> " + singleValues +
+        // " <b>Multiple:</b> " + multipleValues.join( ", " ) )
         }
     })
 
@@ -38,8 +43,11 @@ $(document).ready(function(){
         //On clicking savings "Deposit", it should update balance with input
         savingsBalance = savingsBalance + parseInt($(`#savings .input`).val())   
         $(`#savings .balance`).val(savingsBalance)
-        console.log(savingsBalance)
-        console.log($(`#savings .balance`).val())
+        //console.log(savingsBalance)
+        //console.log($(`#savings .balance`).val())
+        displaySavingsBalance = "$"+savingsBalance
+        //console.log(displaySavingsBalance)
+        $(`#savings .balance`).html(displaySavingsBalance)
         }
     })
 
@@ -56,8 +64,8 @@ $(document).ready(function(){
         //On clicking checking "Withdraw", it should update balance with input
         checkingBalance = checkingBalance - parseInt($(`#checking .input`).val())
         $(`#checking .balance`).val(checkingBalance)
-        console.log(checkingBalance)
-        console.log($(`#checking .balance`).val())
+        //console.log(checkingBalance)
+        //console.log($(`#checking .balance`).val())
         }
     })
 
@@ -74,8 +82,8 @@ $(document).ready(function(){
         //On clicking savings "Withdraw", it should update balance with input
         savingsBalance = savingsBalance - parseInt($(`#savings .input`).val())   
         $(`#savings .balance`).val(savingsBalance)
-        console.log(savingsBalance)
-        console.log($(`#savings .balance`).val())
+        //console.log(savingsBalance)
+        //console.log($(`#savings .balance`).val())
         }
     })
 
