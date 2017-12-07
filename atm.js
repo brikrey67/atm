@@ -62,10 +62,14 @@ $(document).ready(function(){
         if (parseInt($(`#checking .input`).val()) < checkingBalance) {
             checkingBalance = checkingBalance - parseInt($(`#checking .input`).val()) // without overdraft protection
         }
-        else if (parseInt($(`#checking .input`).val())< (checkingBalance + savingsBalance)) {
+        else if (parseInt($(`#checking .input`).val())<= (checkingBalance + savingsBalance)) {
              savingsBalance = savingsBalance - (parseInt($(`#checking .input`).val()) - checkingBalance)
              $(`#savings .balance`).html("$"+savingsBalance)
              checkingBalance = 0
+        }
+        else {
+            alert("You don't have enough money. Try again.")
+            return
         }
 
         $(`#checking .balance`).val(checkingBalance)
@@ -95,10 +99,14 @@ $(document).ready(function(){
         if(parseInt($(`#savings .input`).val()) < savingsBalance) {
             savingsBalance = savingsBalance - parseInt($(`#savings .input`).val()) // without overdraft protection
         }
-        else if(parseInt($(`#savings .input`).val())< (checkingBalance + savingsBalance)) {
+        else if(parseInt($(`#savings .input`).val())<= (checkingBalance + savingsBalance)) {
             checkingBalance = checkingBalance - (parseInt($(`#savings .input`).val()) - savingsBalance)
             $(`#checking .balance`).html("$"+checkingBalance)
             savingsBalance = 0
+        }
+        else {
+            alert("You don't have enough money. Try again.")
+            return
         }
 
 
