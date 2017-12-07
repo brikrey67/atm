@@ -9,6 +9,7 @@ $(document).ready(function(){
 
         //On clicking checking "Deposit", it should get the user input and console.log it
         var checkingDeposit = $(`#checking .input`).val()
+        //logs inut gotten
         console.log(checkingDeposit)
         }
     })
@@ -21,6 +22,7 @@ $(document).ready(function(){
 
         //On clicking savings "Deposit", it should get the user input and console.log it
         var savingsDeposit = $(`#savings .input`).val()
+        //logs inut gotten
         console.log(savingsDeposit)        
         }
     })
@@ -32,7 +34,8 @@ $(document).ready(function(){
         //console.log("hello")
 
         //On clicking checking "Withdraw", it should get the user input and console.log it
-        var checkingWithdraw = $(`#checking .input`).val()
+        var checkingWithdraw = $(`#checking .input`).val()        
+        //logs inut gotten
         console.log(checkingWithdraw)  
         }
     })
@@ -45,7 +48,8 @@ $(document).ready(function(){
 
         //On clicking savings "Withdraw", it should get the user input and console.log it
         var savingsWithdraw = $(`#savings .input`).val()
-        console.log(savingsWithdraw)  
+        //logs inut gotten
+        console.log(savingsWithdraw)
         }
     })
 
