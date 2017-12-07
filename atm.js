@@ -1,7 +1,5 @@
 var checkingBalance = 0
 var savingsBalance = 0
-// var displayCheckingBalance
-// var displaySavingsBalance
 
 $(document).ready(function(){
     //$('body').css('background-color','red')
@@ -21,12 +19,11 @@ $(document).ready(function(){
         $(`#checking .balance`).val(checkingBalance)
         //console.log(checkingBalance)
         //console.log($(`#checking .balance`).val())
-        displayCheckingBalance = "$"+checkingBalance
-        //console.log(displayCheckingBalance)
-        $(`#checking .balance`).html(displayCheckingBalance)
 
-        // $( "p" ).html( "<b>Single:</b> " + singleValues +
-        // " <b>Multiple:</b> " + multipleValues.join( ", " ) )
+        //update page display with balance
+        displayBalance = "$"+checkingBalance
+        //console.log(displayCheckingBalance)
+        $(`#checking .balance`).html(displayBalance)
         }
     })
 
@@ -45,9 +42,11 @@ $(document).ready(function(){
         $(`#savings .balance`).val(savingsBalance)
         //console.log(savingsBalance)
         //console.log($(`#savings .balance`).val())
-        displaySavingsBalance = "$"+savingsBalance
+
+        //update page display with balance
+        displayBalance = "$"+savingsBalance
         //console.log(displaySavingsBalance)
-        $(`#savings .balance`).html(displaySavingsBalance)
+        $(`#savings .balance`).html(displayBalance)
         }
     })
 
@@ -66,6 +65,11 @@ $(document).ready(function(){
         $(`#checking .balance`).val(checkingBalance)
         //console.log(checkingBalance)
         //console.log($(`#checking .balance`).val())
+
+        //update page display with balance
+        displayBalance = "$"+checkingBalance
+        //console.log(displayCheckingBalance)
+        $(`#checking .balance`).html(displayBalance)
         }
     })
 
@@ -84,6 +88,11 @@ $(document).ready(function(){
         $(`#savings .balance`).val(savingsBalance)
         //console.log(savingsBalance)
         //console.log($(`#savings .balance`).val())
+        
+        //update page display with balance
+        displayBalance = "$"+savingsBalance
+        //console.log(displaySavingsBalance)
+        $(`#savings .balance`).html(displayBalance)
         }
     })
 
